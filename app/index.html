@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="description" content="Sample E-commerce app for Sears">
+    <meta name="author" content="Syed Sharique">
+    <title ng-bind="title"></title>
+    <base href="/">
+    <!-- build:css app/styles/lib.min.css -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/node_modules/toastr/build/toastr.css" />
+    <!-- endbuild -->
+
+     <!-- build:css app/styles/app.min.css-->
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <!-- endbuild -->
+
+    
+    
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div>
+        <div ng-include="'src/layout/shell.html'"></div>
+        <div id="splash-page" ng-show="false">
+            <div class="page-splash">
+                <div class="page-splash-message">
+                    Sears Sample E-commerce App
+                </div>
+                <div class="progress progress-striped active page-progress-bar">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- build:js dist/js/lib.js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/node_modules/toastr/toastr.js"></script>
+    <script src="/src/core/ngplus-overlay.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js dist/js/app.js-->
+    <script src="/src/app.module.js"></script>
+    <script src="/src/blocks/diagnostics/diagnostics.module.js"></script>
+    <script src="/src/blocks/exception/exception.module.js"></script>
+    <script src="/src/blocks/logger/logger.module.js"></script>
+    <script src="/src/blocks/router/router.module.js"></script>
+    <script src="/src/core/core.module.js"></script>
+    <script src="/src/dashboard/dashboard.module.js"></script>
+    <script src="/src/layout/layout.module.js"></script>
+    <script src="/src/widgets/widgets.module.js"></script>
+    <script src="/src/blocks/diagnostics/diagnostics.decorator.js"></script>
+    <script src="/src/blocks/exception/exception-handler.provider.js"></script>
+    <script src="/src/blocks/exception/exception.js"></script>
+    <script src="/src/blocks/logger/logger.js"></script>
+    <script src="/src/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/core/config.js"></script>
+    <script src="/src/core/constants.js"></script>
+    <script src="/src/core/core.route.js"></script>
+    <script src="/src/core/dataservice.js"></script>
+    <script src="/src/dashboard/dashboard.controller.js"></script>
+    <script src="/src/dashboard/dashboard.route.js"></script>
+    <script src="/src/layout/ht-sidebar.directive.js"></script>
+    <script src="/src/layout/ht-top-nav.directive.js"></script>
+    <script src="/src/layout/shell.controller.js"></script>
+    <script src="/src/layout/sidebar.controller.js"></script>
+    <script src="/src/widgets/ht-img-product.directive.js"></script>
+    <script src="/src/widgets/ht-widget-header.directive.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<section id="dashboard-view" class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="today-datas">
+                        <li class="borange">
+                            <div class="pull-left"><i class="fa fa-coffee"></i></div>
+                            <div class="datas-text pull-right">
+                                <label for="search">Search</label><input type="text" name="search" ng-model="searchKeyword" />
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+
+                        <li class="bviolet">
+                            <div class="pull-left"><i class="fa fa-users"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.products.length}}</span> Products
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="widget wblue">
+                        <div ht-widget-header title="Recent Products"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <div class="container">
+                                 <ul class="row image-group">
+                                      <li ng-repeat="c in vm.products | limitTo:12 | orderBy:'name'"
+                                        class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                        <div class="user" title="Go to speaker details">
+                                            <img ht-img-product="{{c.image}}"
+                                                class="img-thumbnail stacked">
+                                            <div>
+                                                <small>{{c.name}}</small>
+                                            </div>
+                                            <div>
+                                                <small>{{c.description}}</small>
+                                            </div>
+                                        </div>
+
+                                      </li>
+                                 </ul>
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
