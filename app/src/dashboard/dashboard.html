@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <ul class="today-datas">
                         <li class="borange">
-                            <div class="pull-left"><i class="fa fa-coffee"></i></div>
+                            <div class="pull-left"><i class="fa fa-search"></i></div>
                             <div class="datas-text pull-right">
-                                <label for="search">Search</label><input type="text" name="search" ng-model="searchKeyword" />
+                                    <ht-product-search items="vm.products" prompt="Product Search" model="vm.selected"></ht-product-search>
                             </div>
                             <div class="clearfix"></div>
                         </li>
@@ -32,7 +32,7 @@
                                  <ul class="row image-group">
                                       <li ng-repeat="c in vm.products | limitTo:12 | orderBy:'name'"
                                         class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                                        <div class="user" title="Go to speaker details">
+                                        <div class="user" title="Go to product details">
                                             <img ht-img-product="{{c.image}}"
                                                 class="img-thumbnail stacked">
                                             <div>
