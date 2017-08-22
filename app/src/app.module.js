@@ -11,7 +11,8 @@
             'app.cart',
             'app.products',
             'app.dashboard',
-            'app.layout'
+            'app.layout',
+            'app.authenticate'
         ]);
     
 })();

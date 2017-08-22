@@ -17,7 +17,11 @@
         imageBasePath: '/src/images/',
         unknownProductImageSource: 'unknown_product.jpg',
         productDBURL: '/data/products.json',
-        cart: []
+        cart: [],
+        demoLogin: {
+            username: 'test',
+            password: 'test'
+        }
     };
 
     core.value('config', config);
