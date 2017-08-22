@@ -17,7 +17,6 @@
             scope: {
                 'title': '@',
                 'subtitle': '@',
-                'rightText': '@',
                 'allowCollapse': '@'
             },
             templateUrl: 'src/widgets/widget-header.html',

@@ -8,6 +8,7 @@
             'app.widgets',
     
             /* Feature areas */
+            'app.products',
             'app.dashboard',
             'app.layout'
         ]);

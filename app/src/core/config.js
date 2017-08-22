@@ -15,7 +15,8 @@
         appErrorPrefix: '[SearsApp Error] ', //Configure the exceptionHandler decorator
         appTitle: 'SearsApp Demo',
         imageBasePath: '/src/images/',
-        unknownProductImageSource: 'unknown_product.jpg'
+        unknownProductImageSource: 'unknown_product.jpg',
+        productDBURL: '/data/products.json'
     };
 
     core.value('config', config);

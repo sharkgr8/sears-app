@@ -7,13 +7,13 @@
                         <li class="borange">
                             <div class="pull-left"><i class="fa fa-search"></i></div>
                             <div class="datas-text pull-right">
-                                    <ht-product-search items="vm.products" prompt="Product Search" model="vm.selected"></ht-product-search>
+                                    <input type="text" ng-model="vm.productSelected" placeholder="Search" uib-typeahead="item as item.name for item in vm.products | filter:{name:$viewValue}" typeahead-template-url="product-search-template.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="2">
                             </div>
                             <div class="clearfix"></div>
                         </li>
 
                         <li class="bviolet">
-                            <div class="pull-left"><i class="fa fa-users"></i></div>
+                            <div class="pull-left"><i class="fa fa-product-hunt"></i></div>
                             <div class="datas-text pull-right">
                                 <span class="bold">{{vm.products.length}}</span> Products
                             </div>
@@ -24,22 +24,25 @@
                 </div>
             </div>
             <div class="row">
+                    <ht-carousel slides="vm.carouselProducts"></ht-carousel>
+            </div>
+            <div class="row">
                     <div class="widget wblue">
                         <div ht-widget-header title="Recent Products"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
                             <div class="container">
                                  <ul class="row image-group">
-                                      <li ng-repeat="c in vm.products | limitTo:12 | orderBy:'name'"
-                                        class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                      <li ng-repeat="p in vm.products | limitTo:12 | orderBy:'name'"
+                                        class="col-lg-2 col-md-2 col-sm-3 col-xs-4" ng-click="vm.gotoProduct(p)">
                                         <div class="user" title="Go to product details">
-                                            <img ht-img-product="{{c.image}}"
+                                            <img ht-img-product="{{p.image}}"
                                                 class="img-thumbnail stacked">
                                             <div>
-                                                <small>{{c.name}}</small>
+                                                <small>{{p.name}}</small>
                                             </div>
                                             <div>
-                                                <small>{{c.description}}</small>
+                                                <small>{{p.description}}</small>
                                             </div>
                                         </div>
 
@@ -56,3 +59,9 @@
         </div>
     </section>
 </section>
+<script type="text/ng-template" id="product-search-template.html">
+    <a>
+        <img ng-src="{{match.model.image}}" width="50">
+        <span ng-bind-html="match.model.name | uibTypeaheadHighlight:query"></span>
+    </a>
+</script>

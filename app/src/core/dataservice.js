@@ -6,19 +6,36 @@
         .factory('dataservice', dataservice);
 
     /* @ngInject */
-    function dataservice($http, $location, $q, exception, logger) {
+    function dataservice($http, $location, $q, config, exception, logger) {
         /* jshint validthis:true */
         var readyPromise;
 
         var service = {
+            getProduct: getProduct,
             getProducts: getProducts,
             ready: ready
         };
 
         return service;
 
+        function getProduct(id) {
+            return $http.get(config.productDBURL)
+                .then(getProductComplete)
+                .catch(getProductFailed);
+
+            function getProductComplete(data, status, headers, config) {
+                logger.info(data);
+                return data.data.filter(function(item){ return item.id===id; });
+            }
+
+            function getProductFailed(e) {
+                $location.url('/');
+                return exception.catcher('XHR Failed for getProduct')(e);
+            }
+        }
+
         function getProducts() {
-            return $http.get('/data/products.json')
+            return $http.get(config.productDBURL)
                 .then(getProductsComplete)
                 .catch(getProductsFailed);
 
