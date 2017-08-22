@@ -16,7 +16,8 @@
         appTitle: 'SearsApp Demo',
         imageBasePath: '/src/images/',
         unknownProductImageSource: 'unknown_product.jpg',
-        productDBURL: '/data/products.json'
+        productDBURL: '/data/products.json',
+        cart: []
     };
 
     core.value('config', config);

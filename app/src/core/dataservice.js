@@ -13,6 +13,8 @@
         var service = {
             getProduct: getProduct,
             getProducts: getProducts,
+            addToCart: addToCart,
+            getCartItems: getCartItems,
             ready: ready
         };
 
@@ -46,6 +48,33 @@
                 $location.url('/');
                 return exception.catcher('XHR Failed for getProducts')(e);
             }
+        }
+
+        function addToCart(product) {
+            var myCart = config.cart;
+            var found = false;
+            for (var i = 0; i < myCart.length; i++) {
+                if(myCart[i].id == product.id){
+                    myCart[i].qty++;
+                    myCart[i].totalPrice += myCart[i].unitPrice;
+                    found = true;
+                } 
+            }
+
+            if(!found) {
+                myCart.push({
+                    'id': product.id,
+                    'name': product.name,
+                    'qty': 1,
+                    'unitPrice': product.price,
+                    'totalPrice': product.price
+                });
+            }
+            config.cart = myCart;
+        }
+
+        function getCartItems() {
+            return config.cart;
         }
 
         function getReady() {
