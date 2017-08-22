@@ -24,8 +24,7 @@
                 .catch(getProductFailed);
 
             function getProductComplete(data, status, headers, config) {
-                logger.info(data);
-                return data.data.filter(function(item){ return item.id===id; });
+                return data.data.filter(function(item){ return item.id==id; })[0];
             }
 
             function getProductFailed(e) {

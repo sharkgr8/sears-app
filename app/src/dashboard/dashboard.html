@@ -7,7 +7,7 @@
                         <li class="borange">
                             <div class="pull-left"><i class="fa fa-search"></i></div>
                             <div class="datas-text pull-right">
-                                    <input type="text" ng-model="vm.productSelected" placeholder="Search" uib-typeahead="item as item.name for item in vm.products | filter:{name:$viewValue}" typeahead-template-url="product-search-template.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="2">
+                                    <input type="text" ng-model="vm.productSelected" placeholder="Search" typeahead-on-select="vm.gotoProduct($item)" uib-typeahead="item as item.name for item in vm.products | filter:{name:$viewValue}" typeahead-template-url="product-search-template.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="2">
                             </div>
                             <div class="clearfix"></div>
                         </li>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                    <ht-carousel slides="vm.carouselProducts"></ht-carousel>
+                    <ht-carousel slides="vm.carouselProducts" show-details="vm.gotoProduct(product)"></ht-carousel>
             </div>
             <div class="row">
                     <div class="widget wblue">

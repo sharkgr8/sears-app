@@ -11,7 +11,7 @@
         vm.title = 'Dashboard';
         vm.productSelected = ''; // This will hold the selected item from searchbox
         vm.carouselProducts = []; // to hold dashboard carousel products
-        vm.gotoProduct = gotoProduct;
+        vm.gotoProduct = gotoProduct; // View product detail page
         activate();
 
         function activate() {
