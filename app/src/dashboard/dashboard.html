@@ -34,16 +34,26 @@
                             <div class="container">
                                  <ul class="row image-group">
                                       <li ng-repeat="p in vm.products | limitTo:12 | orderBy:'name'"
-                                        class="col-lg-2 col-md-2 col-sm-3 col-xs-4" ng-click="vm.gotoProduct(p)">
+                                        class="col-lg-2 col-md-2 col-sm-3 col-xs-4" >
                                         <div class="user" title="Go to product details">
                                             <img ht-img-product="{{p.image}}"
-                                                class="img-thumbnail stacked">
-                                            <div>
+                                                class="img-thumbnail stacked" ng-click="vm.gotoProduct(p)">
+                                            <div ng-click="vm.gotoProduct(p)">
                                                 <small>{{p.name}}</small>
                                             </div>
                                             <div><small>Price: {{p.price | currency:"$":2}}</small></div>
-                                            <div>
+                                            <div ng-click="vm.gotoProduct(p)">
                                                 <small>{{p.description}}</small>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-info btn-form-md"
+                                                ng-click="vm.buynow(p)">
+                                                <i class="fa fa-check"></i>Buy Now
+                                                </button>
+                                                <button class="btn btn-info btn-form-md"
+                                                        ng-click="vm.addToCart(p)">
+                                                    <i class="fa fa-opencart"></i>Add to Cart
+                                                </button>
                                             </div>
                                         </div>
 

@@ -13,6 +13,7 @@
         var service = {
             getProduct: getProduct,
             getProducts: getProducts,
+            getCustomers: getCustomers,
             addToCart: addToCart,
             getCartItems: getCartItems,
             ready: ready
@@ -21,7 +22,7 @@
         return service;
 
         function getProduct(id) {
-            return $http.get(config.productDBURL)
+            return $http.get(config.dataURL + 'products.json')
                 .then(getProductComplete)
                 .catch(getProductFailed);
 
@@ -36,7 +37,7 @@
         }
 
         function getProducts() {
-            return $http.get(config.productDBURL)
+            return $http.get(config.dataURL + 'products.json')
                 .then(getProductsComplete)
                 .catch(getProductsFailed);
 
@@ -47,6 +48,21 @@
             function getProductsFailed(e) {
                 $location.url('/');
                 return exception.catcher('XHR Failed for getProducts')(e);
+            }
+        }
+
+        function getCustomers() {
+            return $http.get(config.dataURL + 'customers.json')
+                .then(getCustomersComplete)
+                .catch(getCustomersFailed);
+
+            function getCustomersComplete(data, status, headers, config) {
+                return data.data;
+            }
+
+            function getCustomersFailed(e) {
+                $location.url('/');
+                return exception.catcher('XHR Failed for getCustomers')(e);
             }
         }
 

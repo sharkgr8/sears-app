@@ -5,13 +5,15 @@
         .module('app.dashboard',["ui.bootstrap.typeahead", "ui.bootstrap.tpls"])
         .controller('Dashboard', Dashboard);
 
-    function Dashboard($state, dataservice, logger) {
+    function Dashboard($state, dataservice, loginservice, logger) {
         var vm = this;
         vm.products = [];
         vm.title = 'Dashboard';
         vm.productSelected = ''; // This will hold the selected item from searchbox
         vm.carouselProducts = []; // to hold dashboard carousel products
         vm.gotoProduct = gotoProduct; // View product detail page
+        vm.addToCart = addToCart;
+        vm.buynow = buynow;
         activate();
 
         function activate() {
@@ -32,6 +34,15 @@
             $state.go('product.detail', {
                 id: p.id
             });
+        }
+
+        function addToCart(product) {
+            dataservice.addToCart(product);
+        }
+
+        function buynow(product) {
+            vm.addToCart(product);
+            loginservice.checkAndRedirect('checkout');
         }
     }
 })();
